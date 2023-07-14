@@ -230,6 +230,29 @@ Add New Repository Secret
 ![Alt text](image-2.png)
 
 Finding secrets for Azure:
+
+Finding secrets for Azure (TODO: does not work yet):
+use 
+```
+   az ad sp create-for-rbac --name "myApp" --role contributor \
+                            --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} \
+                            --sdk-auth
+                            ```
+                            instead!
+```
+az ad sp create-for-rbac --name "turbine-app" --role contributor \
+                            --scopes /subscriptions/021b34b5-0b24-48d7-a21f-a50d0fe996c1/resourceGroups/mlops-workshop \
+                            --sdk-auth
+```
+- Results in JSON
+- Copy ClientId as `AZURE_CLIENT_ID`
+- Copy ClientSecret as `AZURE_CLIENT_SECRET`
+- Copy TenantId as `AZURE_TENANT_ID`
+- Copy SubscriptionId as `AZURE_SUBSCRIPTION_ID`
+
+     
+
+
 - Go to portal (portal.azure.com)
 - Navigate to Active Directory from the top menu
 - Select App Registrations from the left menu and create a new app registration if there is none
@@ -253,5 +276,3 @@ Finding secrets for GCP:
 
 Tada!
 ![Alt text](iamges/image-43.png)
-
-test
